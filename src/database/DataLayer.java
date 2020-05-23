@@ -76,8 +76,8 @@ public class DataLayer {
         return query.getResultList();
     }
 
-    public List<Object> where(String where, Class entity) {
-        Query query = this.entityManager.createQuery("FROM " + entity.getSimpleName() + " WHERE " + where);
+    public Object where(Object entity, String where) {
+        Query query = this.entityManager.createQuery("FROM " + entity.getClass().getSimpleName() + " WHERE " + where);
         return query.getResultList();
     }
 

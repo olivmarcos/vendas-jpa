@@ -60,7 +60,7 @@ public class VendasProjeto {
         Controller controller = new Controller();
         Cliente cliente = new Cliente();
 
-        cliente = (Cliente) controller.recover(cliente, 1);
+        cliente = (Cliente) controller.recover(cliente, 2);
         Vendedor vendedor = new Vendedor();
         vendedor = (Vendedor) controller.recover(vendedor, 1);
 
@@ -68,17 +68,20 @@ public class VendasProjeto {
         produto = (Produto) controller.recover(produto, 1);
 
         Pedido pedido = new Pedido();
-        pedido.setPed_data(new Date());
-        pedido.setPed_observacao("teste 2");
-        pedido.setCliente(cliente);
-        pedido.setVendedor(vendedor);
-        pedido.setCliente(cliente);
-        pedido.setVendedor(vendedor);
+        pedido = (Pedido) controller.recover(pedido, 10);
 
+//        pedido.setPed_data(new Date());
+//        pedido.setPed_observacao("teste 2");
+//        pedido.setCliente(cliente);
+//        pedido.setVendedor(vendedor);
+//        pedido.setCliente(cliente);
+//        pedido.setVendedor(vendedor);
         PedidoFacade newPedido = new PedidoFacade();
 
-        newPedido.saveOrder(pedido, produto, 222.22, 2);
-
+//        newPedido.fazerPedido(pedido, produto, 222.22, 2);
+        DataLayer data = new DataLayer();
+        PedidoFacade facade = new PedidoFacade();
+        facade.desfazerPedido(pedido);
     }
 
     /*GRUPO: Marcos Antônio e Eduardo */
